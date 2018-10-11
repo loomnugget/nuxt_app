@@ -1,0 +1,39 @@
+{
+  "name": "nuxt_app",
+  "version": "1.0.0",
+  "description": "My geometric Nuxt.js project",
+  "author": "Claudia Cedfeldt",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc2.2",
+    "@nuxtjs/axios": "^5.0.0",
+    "apollo-link-context": "^1.0.9",
+    "apollo-link-http": "^1.5.5",
+    "apollo-link-schema": "^1.1.1",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "graphql-tools": "^4.0.0",
+    "nuxt": "^2.0.0",
+    "vuetify": "^1.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
