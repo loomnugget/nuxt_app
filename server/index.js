@@ -1,6 +1,7 @@
-
 const express = require('express')
 const consola = require('consola')
+const https = require('https');
+const fs = require('fs');
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
@@ -25,11 +26,20 @@ async function start() {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
-  // Listen the server
-  app.listen(port, host)
+  // Allow localhost to use https NOTE: dev only!
+  const options = {
+    key: fs.readFileSync('./localhost.key'),
+    cert: fs.readFileSync('./localhost.crt')
+  };
+
+  const server = config.dev ? https.createServer(options, app) : https.createServer(app);
+
+  server.listen(port, host)
+
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
 }
+
 start()

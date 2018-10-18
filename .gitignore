@@ -79,3 +79,7 @@ dist
 
 # IDE
 .idea
+
+# Localhost certificates
+localhost.crt
+localhost.key

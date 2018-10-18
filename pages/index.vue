@@ -4,29 +4,31 @@
       <v-card>
         <v-card-title class="headline">Apple Pay Demo</v-card-title>
         <v-card-actions>
-          <button @click="show" style="-webkit-appearance: -apple-pay-button;"></button>
           <v-btn @click="canMakePayment">Can Make Payment</v-btn>
-          <v-btn @click="show">Show</v-btn>
         </v-card-actions>
       </v-card>
+
+      <v-alert :value="errorPresent" type="error">
+        {{ error }}
+      </v-alert>
     </v-flex>
   </v-layout>
 </template>
 
 
 <script>
-import { canMakePayment, handleApplePay } from '~/config/payments/payments'
+import { handleApplePay } from '~/config/payments/applePay'
 
 export default {
+  data () {
+    return {
+      errorPresent: true,
+      error: 'Test error.'
+    }
+  },
   methods: {
-    show () {
-      // Call payment show method here
-      console.warn('clicked show')
-      return handleApplePay()
-    },
     canMakePayment () {
-      console.warn('clicked canMakePayment')
-      return canMakePayment()
+      return handleApplePay()
     }
   }
 }
