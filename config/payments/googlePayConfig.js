@@ -8,7 +8,6 @@ export const googlePaymentDataRequest = {
     merchantId: '01234567890123456789-TESTID',
     merchantName: 'Example Merchant'
   },
-  // NOTE: these will need to be biller specific and calculated from the selected biller options on the payment page
   allowedPaymentMethods: [{
     type: 'CARD',
     parameters: {

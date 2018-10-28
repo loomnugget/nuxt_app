@@ -3,7 +3,7 @@ export const applePayMethod = {
   supportedMethods: 'https://apple.com/apple-pay',
   data: {
     version: 3, // The Apple Pay version supported on your website.
-    merchantIdentifier: "doxo_merchant.com.example" // The merchant identifier you registered with Apple for use with Apple Pay.
+    merchantIdentifier: "merchant.com.example" // The merchant identifier you registered with Apple for use with Apple Pay.
   },
 };
 

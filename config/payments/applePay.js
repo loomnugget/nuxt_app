@@ -57,7 +57,6 @@ const paymentDetails = {
 // using the Payment Request API are supported as well as before initializing payment sheet
 export const showApplePayButton = () => {
   const applePaySupported = !!window.ApplePaySession && window.ApplePaySession.canMakePayments();
-
   const paymentRequestAPISupported = !!window.PaymentRequest;
   const fullySupported = applePaySupported && paymentRequestAPISupported;
 
@@ -123,6 +122,7 @@ export const handleApplePay = () => {
         body: event.validationURL,
         dataType: 'json'
       })
+      // NOTE: this is pseudocode only, this doesn't actually work!
       // event.complete param = Apple Pay Session object (merchantSession)
       // returned from apple Pay server - our server needs to return this for the client to use
       .then(merchantSession => {

@@ -2,18 +2,14 @@ import { googlePaymentDataRequest } from './googlePayConfig';
 
 export const canMakeGooglePayPayment = () => {
   if (window.PaymentRequest) {
-    const request = createPaymentRequest();
     // canMakePayment() PaymentRequest object determines if we can make a payment before calling show().
     // It returns a Promise resolves to true if the user agent supports any of the payment methods
-    // supplied to the constructor, and false if none are supported -
-    // could be useful for showing different buttons
+    // supplied to the constructor, and false if none are supported - useful for showing different buttons
+    const request = createPaymentRequest();
     request.canMakePayment()
     .then(result => {
-      console.log(result)
       if (result) {
-        console.log('canMakePayment success!', result)
-        // Display PaymentRequest dialog on interaction with the existing checkout button
-        document.getElementById('googlePayBtn').addEventListener('click', onBuyClicked);
+        // show relevant button
       }
     })
     .catch(err => {
@@ -32,7 +28,7 @@ export const showPaymentSheet = () => {
 
       console.log('Success Response', jsonResponse)
     })
-    .catch(function(err) {
+    .catch(err => {
       console.log('show() error! ' + err.name + ' error: ' + err.message);
     });
   }
@@ -40,7 +36,6 @@ export const showPaymentSheet = () => {
 
 // Returns a PaymentRequest promise
 function createPaymentRequest() {
-  // Add support for the Google Pay API.
   const methodData = [
     {
       supportedMethods: 'https://google.com/pay', // Supported in Chrome for Android only

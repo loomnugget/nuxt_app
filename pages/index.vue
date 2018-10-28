@@ -4,7 +4,7 @@
       <v-card>
         <v-card-title class="headline">Apple Pay Demo</v-card-title>
         <v-card-actions>
-          <v-btn @click="canMakePayment">Can Make Payment</v-btn>
+          <button class="apple-pay-button" @click="canMakePayment"></button>
         </v-card-actions>
       </v-card>
 
@@ -33,3 +33,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.apple-pay-button {
+  -webkit-appearance: -apple-pay-button;
+  -apple-pay-button-type: plain;
+  -apple-pay-button-style: black;
+  height: 39px;
+  width: 229px;
+}
+</style>

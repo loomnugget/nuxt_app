@@ -33,6 +33,7 @@ async function start() {
   };
 
   const server = config.dev ? https.createServer(options, app) : https.createServer(app);
+  // sconst server = https.createServer(options, app)
 
   server.listen(port, host)
 
